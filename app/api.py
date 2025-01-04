@@ -61,7 +61,7 @@ async def register(
     """
     if not is_username_available(input.username):
         raise HTTPException(
-            status_code=status.CONFLICT, detail="Username already taken"
+            status_code=status.HTTP_409_CONFLICT, detail="Username already taken"
         )
     user = create_user(input)
     response.headers["Link"] = _links(
